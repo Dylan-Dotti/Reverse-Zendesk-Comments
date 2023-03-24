@@ -1,0 +1,33 @@
+
+{
+  "manifest_version": 3,
+  "name": "Reverse Zendesk Comments",
+  "description": "Adds the ability to reverse the order of ticket comments in Zendesk",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+  "action": {
+    "default_icon": "zendesk_icon.png"
+  },
+  "icons": {
+    "16": "zendesk_icon.png",
+    "32": "zendesk_icon.png",
+    "48": "zendesk_icon.png",
+    "128": "zendesk_icon.png"
+  },
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://*.zendesk.com/*"
+      ]
+    }
+  ]
+}
